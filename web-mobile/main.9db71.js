@@ -16,8 +16,9 @@ window.boot = function () {
             // }
             label.innerHTML = percent.toFixed(2) + '%';
         };
-        splash.style.display = 'block';
-        progressBar.style.width = '0%';
+        //splash.style.display = 'block';
+        //progressBar.style.width = '0%';
+        lable.innerHTML = '0.00%';
 
         cc.director.once(cc.Director.EVENT_AFTER_SCENE_LAUNCH, function () {
             splash.style.display = 'none';
