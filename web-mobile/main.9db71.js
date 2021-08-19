@@ -14,7 +14,7 @@ window.boot = function () {
                 progressBar.style.width = percent.toFixed(2) + '%';
             }
         };
-        splash.style.display = 'none';
+        splash.style.display = 'block';
         progressBar.style.width = '0%';
 
         cc.director.once(cc.Director.EVENT_AFTER_SCENE_LAUNCH, function () {
@@ -28,7 +28,7 @@ window.boot = function () {
         cc.view.resizeWithBrowserSize(true);
 
         if (cc.sys.isBrowser) {
-            // setLoadingDisplay();
+             setLoadingDisplay();
         }
 
         if (cc.sys.isMobile) {
