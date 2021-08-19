@@ -6,13 +6,15 @@ window.boot = function () {
     let { RESOURCES, INTERNAL, MAIN, START_SCENE } = cc.AssetManager.BuiltinBundleName;
     function setLoadingDisplay () {
         // Loading splash scene
-        var splash = document.getElementById('splash');
-        var progressBar = splash.querySelector('.progress-bar span');
-        onProgress = function (finish, total) {
-            var percent = 100 * finish / total;
-            if (progressBar) {
-                progressBar.style.width = percent.toFixed(2) + '%';
-            }
+        // var splash = document.getElementById('splash');
+         var label = document.getElementById('label');
+        // var progressBar = splash.querySelector('.progress-bar span');
+        cc.loader.onProgress = function (completedCount, totalCount,item) {
+            var percent = 100 * completedCount / totalCount;
+            // if (progressBar) {
+            //     progressBar.style.width = percent.toFixed(2) + '%';
+            // }
+            label.innerHTML = percent.toFixed(2) + '%';
         };
         splash.style.display = 'block';
         progressBar.style.width = '0%';
@@ -28,7 +30,7 @@ window.boot = function () {
         cc.view.resizeWithBrowserSize(true);
 
         if (cc.sys.isBrowser) {
-             setLoadingDisplay();
+            setLoadingDisplay();
         }
 
         if (cc.sys.isMobile) {
